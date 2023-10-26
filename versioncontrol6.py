@@ -1,4 +1,3 @@
-# Encoder function
 def encode(password):
     encoded_password = ""
     for digit in password:
@@ -16,28 +15,26 @@ def decode(encoded_password):
         decoded_password += decoded_digit
     return decoded_password
 
-# Main function
-def main():
-    while True:
-        print("1. Encode")
-        print("2. Decode")
-        print("3. Exit")
+# While loop for the main menu program
+while True:
+    print("Menu")
+    print('-------------')
+    print("1. Encode")
+    print("2. Decode")
+    print("3. Quit")
+# input function to take user selection
+    selection = input("Please enter an option: ")
 
-        choice = input("Enter your choice: ")
-
-        if choice == "1":
-            password = input("Enter the 8-digit password: ")
-            encoded_password = encode(password)
-            print("Encoded password:", encoded_password)
-        elif choice == "2":
-            encoded_password = input("Enter the encoded password: ")
-            original_password = decode(encoded_password)
-            print("Decoded password:", original_password)
-        elif choice == "3":
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please try again.")
-
-if __name__ == "__main__":
-    main()
+    if selection == '1':
+        passcode = input("Please enter your password to encode: ")
+        encoded_passcode = encode(passcode)
+        print("Your password has been encoded and stored! ")
+    elif selection == '2':
+        if not encoded_passcode:  # if user doesn't select 1 as their first option they will have no password to decode.
+            print("Please code a password. ")
+        else:  # if they select 1 they will activate this line of code
+            print(f'The encoded password is {encoded_passcode}, and the original password is {(encoded_passcode)}. ')
+    elif selection == '3':   # user exits the program by selecting this option
+        break
+    else:
+        print('Please try again.')
